@@ -1,0 +1,43 @@
+@startuml
+
+class Call {
+  id: Long;
+  customer: Customer;
+  employee Employee;
+}
+
+class Customer{
+    id: Long;
+    firstName: String;
+    lastName: String;
+    call: Call;
+}
+class Employee{
+
+    id: Long;
+    firstName: String;
+    lastName: String;
+    call: Call;
+    department: Department;
+}
+class Department{
+  departmentName: String;
+  employees: List<Employee>;
+  headOfDepartment: HeadOfDepartment;
+}
+
+class HeadOfDepartment{
+  id: Long;
+  firstName: String;
+  lastName: String;
+  department: Department;
+}
+
+
+Call "1" <-left- "1" Customer:  tätigt  <
+Call "*" <-right- "*" Employee:  nimmt entgegen <
+Department "1" <-- "*"Employee: angestellt <
+HeadOfDepartment "1" <-- "1"Department: leitet >
+
+
+@enduml
