@@ -5,7 +5,7 @@ public class Call {
 
     private Customer customer;
 
-    private Employee employee;
+    private List<Employee> employees;
 
     public Call(Customer customer, Employee employee) {
         this.customer = customer;
